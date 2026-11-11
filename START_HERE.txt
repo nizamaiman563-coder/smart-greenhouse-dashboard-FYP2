@@ -1,0 +1,29 @@
+GREENEDGE SMART GREENHOUSE — FUZZY PWM EDITION
+
+1. Extract the ZIP fully.
+2. Open the greenhouse_streamlit_dashboard folder.
+3. Double-click START_DASHBOARD.bat.
+4. If required, allow the launcher to install dependencies into its Python environment.
+5. Keep the launcher open, then open the local Streamlit URL shown (usually http://localhost:8501).
+
+To start using Anaconda Prompt instead:
+    python -m pip install -r requirements.txt
+    python -m streamlit run app.py
+
+MAIN CHANGES
+- Two fans have independent, proportional 0–100% fuzzy PWM commands.
+- Full-spectrum LED has a 0–100% fuzzy PWM brightness command.
+- AUTO uses zero-order Sugeno fuzzy inference (see fuzzy_controller.py).
+- MANUAL allows 0–100% sliders for Fan 1, Fan 2 and LED.
+- Overview and Control pages show PWM percentage bars, plus rolling charts.
+- Temperature/humidity, moisture and tank now respond to simulated control effects.
+- The pump remains ON/OFF with soil hysteresis and ultrasonic low-water protection.
+- CO2 sensor, solenoid valve and water-flow sensor remain removed.
+
+HARDWARE WARNING
+- Dashboard is SIMULATION ONLY. No real MQTT connection or GPIO/PWM output.
+- A 0–100% PWM duty request is NOT a physical 0–10V analog output.
+- LED schedule demand is simulated; there is no physical light sensor.
+- A proper fan driver and dimmable full-spectrum LED driver are needed.
+
+For the full control rule description, read README.md.
